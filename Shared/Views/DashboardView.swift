@@ -92,6 +92,7 @@ struct DashboardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+//            DashboardView().environment(\.managedObjectContext, PreviewDataManager.preview.viewContext())
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
           //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
