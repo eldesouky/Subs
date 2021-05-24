@@ -47,7 +47,6 @@ struct DashboardView: View {
                             showTotalSubscriptions.toggle()
                         }
                     }
-                
             }
             .background(Color.white)
             .navigationBarTitle(AppLocal.default[.title_subscription], displayMode: .inline)
