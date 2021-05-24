@@ -9,16 +9,17 @@ import SwiftUI
 
 struct AverageExpenses: View {
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 5) {
             Divider()
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text("Average Expenses")
                         .bold()
-                        .font(.callout)
+                        .font(.headline)
                     Text("PER YEAR")
+                        .foregroundColor(.gray)
+                        .bold()
                         .font(.caption2)
-
                 }
                 Spacer()
                 Text("215,99 €")
@@ -28,6 +29,7 @@ struct AverageExpenses: View {
             }
             .padding(.top, 5)
             .padding(.horizontal)
+            .padding(.bottom)
             .background(Color.white)
 
         }
