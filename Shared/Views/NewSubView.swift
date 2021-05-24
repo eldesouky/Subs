@@ -14,44 +14,55 @@ struct NewSubView: View {
     @ObservedObject var viewModel = ViewModel()
     
     init(){
-        UITableViewCell.appearance().backgroundColor = .clear
+//        UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white.edgesIgnoringSafeArea(.all)
-                VStack {
-                    VStack {
-                        Group {}
-                        Button(action: {
-                        }) {
+                viewModel.color.edgesIgnoringSafeArea(.all)
+                Form {
+                    HStack(spacing: 0) {
+                        ZStack {
                             Image("netflix_logo_2")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .background(Color.clear)
                                 .padding()
-                                .frame(width: 150, height: 150)
-                        }
+                            Text("Tab To\nChange")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                        }.frame(width: 150, height: 150, alignment: .center)
+                        .onTapGesture(perform: {
+                            
+                        })
                         
                         TextField("0.00", text: $viewModel.price)
                             .multilineTextAlignment(.center)
-                            .frame(width: 200, height: 45, alignment: .center)
+                            .frame(height: 45, alignment: .center)
                             .border(Color.black, width: 1)
                     }
-                    Form {
+                    Section {
                         TextInputCell(title: .label_itemName, valuePlaceHolder: .label_itemPlaceholderName, value: $viewModel.name)
                         TextInputCell(title: .label_itemDescription, valuePlaceHolder: .label_itemPlaceholderDescription, value: $viewModel.name)
                         OptionsCell(title: .label_itemCategory)
-                        OptionsCell(title: .label_itemColor)
-                        TextInputCell(title: .label_itemFirstBill, valuePlaceHolder: .label_itemPlaceholderFirstBill, value: $viewModel.name)
+                        ColorPickerCell(title: .label_itemColor, value: $viewModel.color)
+                        PickerCell(title: .label_itemCurrency, list: StyleSheet.currencyList())
+                        
+                        DatePickerCell(title: .label_itemFirstBill, value: $viewModel.firstBillDate)
                         OptionsCell(title: .label_itemCycle)
                         OptionsCell(title: .label_itemDuration)
                         OptionsCell(title: .label_itemRemindMe)
-                        //                        PickerCell(title: .label_itemCurrency, list: StyleSheet.currencyList())
                     }
+                    
+                    Section {
+                        
+                    }.foregroundColor(viewModel.color)
                 }
+            }.onAppear {
+                UITableViewCell.appearance().backgroundColor = UIColor.clear
             }
             .navigationBarTitle(AppLocal.default[.title_newSubscription], displayMode: .inline)
             .navigationBarItems(
@@ -99,23 +110,40 @@ fileprivate struct PickerCell: View {
     @State private var selectedFrameworkIndex = ""
     
     var body: some View {
-        Section {
-            Picker(AppLocal.default[title], selection: $selectedFrameworkIndex) {
-                ForEach(list, id:\.self) { item in
-                    Text(item)
-                }
-            }.pickerStyle(WheelPickerStyle())
+        Picker(AppLocal.default[title], selection: $selectedFrameworkIndex) {
+            ForEach(list, id:\.self) { item in
+                Text(item)
+            }
         }
     }
 }
 
+fileprivate struct ColorPickerCell: View {
+    var title: AppLocal.Strings
+    @Binding var value: Color
+    
+    var body: some View {
+        ColorPicker(AppLocal.default[title], selection: $value)
+        
+    }
+}
+
+fileprivate struct DatePickerCell: View {
+    var title: AppLocal.Strings
+    @Binding var value: Date
+    
+    var body: some View {
+        DatePicker(AppLocal.default[title], selection: $value, displayedComponents: .date)
+            .datePickerStyle(CompactDatePickerStyle())
+    }
+}
+
+
 #if DEBUG
 struct NewSubView_Previews: PreviewProvider {
-    
     static var previews: some View {
         NewSubView()
     }
 }
-
 #endif
 
