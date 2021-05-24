@@ -22,7 +22,6 @@ extension NewSubView {
         override func configureLinks() {
             super.configureLinks()
             
-            
             Publishers.CombineLatest($name, $price)
                 .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: $1)}
                 .assign(to: &$isDataValid)

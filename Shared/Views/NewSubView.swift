@@ -14,16 +14,17 @@ struct NewSubView: View {
     @ObservedObject var viewModel = ViewModel()
     
     init(){
-//        UITableViewCell.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
         NavigationView {
             ZStack {
-                StyleSheet.Colors.mainBackgroundColor.edgesIgnoringSafeArea(.all)
+                Color.white.edgesIgnoringSafeArea(.all)
                 VStack {
                     VStack {
+                        Group {}
                         Button(action: {
                         }) {
                             Image("netflix_logo_2")

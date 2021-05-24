@@ -38,12 +38,8 @@
 		A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */; };
 		A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F59265BA23000194F79 /* NewSubView.swift */; };
 		A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F5B265BD02100194F79 /* BaseViewModel.swift */; };
-		A7E51F61265BD15D00194F79 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F60265BD15D00194F79 /* CoreDataHelper.swift */; };
-		A7E51F63265BD16700194F79 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F62265BD16700194F79 /* DBHelper.swift */; };
-		A7E51F65265BD19300194F79 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F64265BD19300194F79 /* DataManager.swift */; };
 		A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F66265BD8FE00194F79 /* AppLocal.swift */; };
 		A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F69265BD9B800194F79 /* Local+Strings.swift */; };
-		A7E51F6C265BFA7900194F79 /* PreviewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F6B265BFA7900194F79 /* PreviewDataManager.swift */; };
 		A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,12 +89,8 @@
 		A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewSubView+ViewModel.swift"; sourceTree = "<group>"; };
 		A7E51F59265BA23000194F79 /* NewSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubView.swift; sourceTree = "<group>"; };
 		A7E51F5B265BD02100194F79 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		A7E51F60265BD15D00194F79 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		A7E51F62265BD16700194F79 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
-		A7E51F64265BD19300194F79 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A7E51F66265BD8FE00194F79 /* AppLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocal.swift; sourceTree = "<group>"; };
 		A7E51F69265BD9B800194F79 /* Local+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Local+Strings.swift"; sourceTree = "<group>"; };
-		A7E51F6B265BFA7900194F79 /* PreviewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataManager.swift; sourceTree = "<group>"; };
 		A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,9 +219,7 @@
 			children = (
 				1B677BED265A788500816121 /* DashboardView.swift */,
 				A7E51F59265BA23000194F79 /* NewSubView.swift */,
-				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
-				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
-				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+				A7DF5BC6265C2084005F109D /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,10 +227,7 @@
 		1B677C8D265B2FC100816121 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				A7E51F5F265BD14C00194F79 /* CoreDataHelps */,
 				1B677BEA265A788500816121 /* Subs.xcdatamodeld */,
-				A7E51F64265BD19300194F79 /* DataManager.swift */,
-				A7E51F6B265BFA7900194F79 /* PreviewDataManager.swift */,
 				1B677BEE265A788500816121 /* Persistence.swift */,
 			);
 			path = Storage;
@@ -259,6 +246,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A7DF5BC6265C2084005F109D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
+				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
+				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		A7E51F52265B9FC900194F79 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,15 +264,6 @@
 				A7E51F5B265BD02100194F79 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A7E51F5F265BD14C00194F79 /* CoreDataHelps */ = {
-			isa = PBXGroup;
-			children = (
-				A7E51F62265BD16700194F79 /* DBHelper.swift */,
-				A7E51F60265BD15D00194F79 /* CoreDataHelper.swift */,
-			);
-			path = CoreDataHelps;
 			sourceTree = "<group>";
 		};
 		A7E51F68265BD9A100194F79 /* Localization */ = {
@@ -448,7 +436,6 @@
 				A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */,
 				1B677C8F265B2FE900816121 /* SubscriptionType.swift in Sources */,
 				A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */,
-				A7E51F61265BD15D00194F79 /* CoreDataHelper.swift in Sources */,
 				A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */,
 				1B677C83265A972900816121 /* Subscription+CoreDataClass.swift in Sources */,
 				A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */,
@@ -459,9 +446,6 @@
 				A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */,
 				A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */,
 				A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */,
-				A7E51F63265BD16700194F79 /* DBHelper.swift in Sources */,
-				A7E51F65265BD19300194F79 /* DataManager.swift in Sources */,
-				A7E51F6C265BFA7900194F79 /* PreviewDataManager.swift in Sources */,
 				A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */,
 				1B677C96265B360C00816121 /* TotalSubscriptions.swift in Sources */,
 				1B677C99265B380E00816121 /* AverageExpenses.swift in Sources */,

@@ -17,7 +17,6 @@ struct DashboardView: View {
     private var subscriptions: FetchedResults<Subscription>
     
     @State var showTotalSubscriptions = false
-
     
     init(){
         UITableView.appearance().separatorStyle = .none
@@ -52,7 +51,6 @@ struct DashboardView: View {
                    
                 }
                 .background(Color.white)
-
             }
             .navigationBarTitle("Subscriptions", displayMode: .inline)
             .navigationBarItems(leading: EditButton(),trailing: Button(action: addItem, label: { Label("", systemImage: "plus") }))
@@ -92,7 +90,6 @@ struct DashboardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            DashboardView().environment(\.managedObjectContext, PreviewDataManager.preview.viewContext())
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
           //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }

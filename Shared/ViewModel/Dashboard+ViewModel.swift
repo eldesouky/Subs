@@ -10,13 +10,7 @@ import Combine
 
 extension DashboardView {
     class ViewModel : ObservableObject {
-        
-        @Published var items: [Subscription] = []
-//
-        func fetchData() {
-            items = DataManager.shared.getItems()
-        }
-        
+
         private func addItem() {
 //            withAnimation {
 //

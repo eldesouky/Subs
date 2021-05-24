@@ -9,11 +9,6 @@ import SwiftUI
 
 final class StyleSheet {
     
-    struct Colors {
-        static let lightGray = Color(#colorLiteral(red: 0.8745098039, green: 0.8784313725, blue: 0.8862745098, alpha: 1))
-        static let mainBackgroundColor = Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-    }
-    
     static var dateFormatter: DateFormatter {
         let df = DateFormatter()
         df.dateFormat = "MM/DD/YY"
@@ -47,7 +42,7 @@ final class StyleSheet {
     }
     
     static func validate(input: String, regex: ValidationRegex = .nonEmpty) -> Bool {
-        let test = NSPredicate(format: "SELF MATCH %@", regex.rawValue)
+        let test = NSPredicate(format: "SELF MATCHES %@", regex.rawValue)
         return test.evaluate(with: input)
     }
 }
