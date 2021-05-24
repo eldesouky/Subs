@@ -5,7 +5,7 @@
 //  Created by Mahmoud Eldesouky on 24.05.21.
 //
 
-import Foundation
+import UIKit
 
 enum SubscriptionType: Int16, CaseIterable {
     case netflix, appleArcade, appleMusic, youtubePremium, youtubeMusic

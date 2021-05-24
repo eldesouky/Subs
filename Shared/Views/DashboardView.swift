@@ -16,6 +16,9 @@ struct DashboardView: View {
         animation: .default)
     private var subscriptions: FetchedResults<Subscription>
     
+    @State var showTotalSubscriptions = false
+
+    
     init(){
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = .clear
@@ -24,18 +27,35 @@ struct DashboardView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(subscriptions) { sub in
-                    SubscriptionCell(content: sub)
-                        .listRowInsets(EdgeInsets())
-                        .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            ZStack {
+                Color.white.opacity(0.5).edgesIgnoringSafeArea(.all)
+                VStack(spacing: 0) {
+                    List {
+                        ForEach(subscriptions) { sub in
+                            SubscriptionCell(content: sub)
+                                .listRowInsets(EdgeInsets())
+                                .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
 
+                        }
+                        .onDelete(perform: deleteItems)
+                    }
+                    if showTotalSubscriptions{
+                        TotalSubscriptions()
+                            .transition(.move(edge: .bottom))
+                    }
+                    AverageExpenses()
+                        .onTapGesture {
+                            withAnimation {
+                                showTotalSubscriptions.toggle()
+                            }
+                        }
+                   
                 }
-                .onDelete(perform: deleteItems)
+                .background(Color.white)
+
             }
             .navigationBarTitle("Subscriptions", displayMode: .inline)
             .navigationBarItems(leading: EditButton(),trailing: Button(action: addItem, label: { Label("", systemImage: "plus") }))
-
         }
     }
 
@@ -73,7 +93,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+          //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }
