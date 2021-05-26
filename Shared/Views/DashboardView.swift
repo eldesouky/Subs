@@ -19,6 +19,8 @@ struct DashboardView: View {
     @State var showTotalSubscriptions = false
     @State var createNewItem: Bool = false
     
+    @StateObject var viewModel: ViewModel()
+    
     init(){
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = .clear
@@ -97,7 +99,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-        }
-    }
+            DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+          //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

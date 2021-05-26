@@ -32,8 +32,9 @@ extension Subscription {
     @NSManaged public var icon: String?
     @NSManaged public var amount: Double
     
-    static func createDummy(context: NSManagedObjectContext) {
-        let newSub = Subscription(context: context)
+    @discardableResult
+    static func createDummy(context: NSManagedObjectContext) -> Subscription {
+        let newSub = Subscription()
         let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
         newSub.amount = Double.random(in: 1.99 ... 29.99).rounded(toPlaces: 2)
         newSub.currency = Currency.€.rawValue
@@ -45,8 +46,7 @@ extension Subscription {
         newSub.name = subType.getName()
         newSub.icon = subType.getIcon()
         newSub.color = subType.getColor()
-
-        
+        return newSub
     }
     
     static func create() -> Subscription {

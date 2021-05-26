@@ -53,12 +53,7 @@ struct SubscriptionCell_Previews: PreviewProvider {
     
     static var previews: some View {
         let context = PersistenceController.preview.container.viewContext
-        let sub = Subscription(context: context)
-        sub.name = "Apple Arcade"
-        sub.icon = "apple_logo"
-        sub.amount = 7.99
-        sub.currency = 0
-        sub.color = UIColor.red.hexStringFromColor()
+        let sub = Subscription.createDummy(context: context)
    
         return SubscriptionCell(content: sub)
     }
