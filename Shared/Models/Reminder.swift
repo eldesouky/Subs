@@ -19,5 +19,4 @@ struct Reminder: Hashable {
     
     var amount: Int?
     var period: Reminder.Period
-    
 }

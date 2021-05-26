@@ -12,41 +12,51 @@ import CoreData
 extension NewSubView {
     class ViewModel : BaseViewModel {
         
-        
-        
         @Published var name: String = ""
         @Published var subDescription: String = ""
         @Published var subCategory: String = ""
-        @Published var image: UIImage = UIImage(named: "netflix_logo_2")!
-        @Published var price: String = ""
-        @Published var currency: String = ""
+        @Published var imageName: String = ""
+        @Published var amount: Double = 0.0
         @Published var color: Color = Color.red
         @Published var firstBillDate: Date = Date()
         @Published var duration: String = ""
         @Published var remindMe: String? = nil
         
+        @Published var currency: String = Locale.current.currencySymbol ?? ""
+        
         @Published var isDataValid: Bool = false
-        
-        @State var subItem: Subscription
-        
-        override init(context: NSManagedObjectContext) {
-            subItem = Subscription(context: context)
-            super.init(context: context)
-        }
+              
+        @Published var image: Image = Image("netflix_logo")
         
         override func configureLinks() {
             super.configureLinks()
             
-            Publishers.CombineLatest($name, $price)
-                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: $1)}
+            Publishers.CombineLatest($name, $amount)
+                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
                 .assign(to: &$isDataValid)
+            
+            $imageName
+                .filter {!$0.isEmpty}
+                .map { name in
+                    return Image("netflix_logo")
+                }
+                .assign(to: &$image)
         }
-        
-        // MARK: - Validations
-        
         
         func storeItem() {
             if isDataValid {
+                let newSub = Subscription(context: context)
+                let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
+                newSub.amount = amount
+                newSub.currency = Currency.€.rawValue
+                newSub.cycle = 30
+                newSub.detail = Int.random(in: 0 ... 1) == 0 ? nil : "main"
+                newSub.duration =  3000
+                newSub.firstBill = Date()
+                newSub.type = subType.rawValue
+                newSub.name = subType.getName()
+                newSub.icon = subType.getIcon()
+                newSub.color = color.description
                 do {
                     try context.save()
                 } catch {

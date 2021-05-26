@@ -23,7 +23,6 @@ struct NewSubView: View {
         NavigationView {
             ZStack {
                 viewModel.color.edgesIgnoringSafeArea(.all)
-                
                 List {
                     fieldHeader
                     fieldBody
@@ -39,21 +38,23 @@ struct NewSubView: View {
         
         HStack(spacing: 0) {
             ZStack {
-                Image("netflix_logo_2")
+                viewModel.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .background(Color.clear)
                     .padding()
+                
                 Text("Tab To\nChange")
                     .font(.caption)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
             }.frame(width: 150, height: 150, alignment: .center)
             .onTapGesture(perform: {
-                
+                // open icons and set value imageName
+                viewModel.imageName = "netflix_logo"
             })
-            
-            TextField("0.00 \(viewModel.currency)", text: $viewModel.price)
+            TextField("0.00", value: $viewModel.amount, formatter: StyleSheet.currencyFormatter)
+//            TextField("0.00 \(viewModel.currency)", text: $viewModel.price)
                 .multilineTextAlignment(.center)
                 .frame(height: 45, alignment: .center)
                 .border(Color.black, width: 1)
