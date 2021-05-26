@@ -19,7 +19,7 @@ struct DashboardView: View {
     @State var showTotalSubscriptions = false
     @State var createNewItem: Bool = false
     
-    @StateObject var viewModel: ViewModel()
+//    @StateObject var viewModel: ViewModel()
     
     init(){
         UITableView.appearance().separatorStyle = .none
@@ -67,13 +67,13 @@ struct DashboardView: View {
     
     private func addItem() {
         withAnimation {
-            
+
             Subscription.createDummy(context: viewContext)
-            
+
             do {
                 try viewContext.save()
             } catch {
-                
+
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -81,17 +81,17 @@ struct DashboardView: View {
     }
     
     private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { subscriptions[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+//        withAnimation {
+//            offsets.map { subscriptions[$0] }.forEach(viewContext.delete)
+//
+//            do {
+//                try viewContext.save()
+//            } catch {
+//
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
     }
 }
 
@@ -99,6 +99,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-          //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        }
+    }
 }
