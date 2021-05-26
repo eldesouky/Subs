@@ -25,6 +25,10 @@ enum TimePeriodCategory: Int16, CaseIterable {
             return "Year(s)"
         }
     }
+    
+    static func valuesList() -> [String] {
+        return TimePeriodCategory.allCases.map({$0.value})
+    }
 }
 
 // xx-y    -> xx is number of occurances, y is < day, month, year >
@@ -131,7 +135,15 @@ final class SubscriptionModel: Identifiable {
     
     init() {}
     
-    init(type: SubscriptionType, detail: String? = nil, color: Color, firstBill: Date? = nil, cycle: (number: Int16, period: TimePeriodCategory), duration: (number: Int16, period: TimePeriodCategory), name: String, icon: SubscriptionIcon = .default(), amount: Double) {
+    init(type: SubscriptionType,
+         detail: String? = nil,
+         color: Color,
+         firstBill: Date? = nil,
+         cycle: (number: Int16, period: TimePeriodCategory),
+         duration: (number: Int16, period: TimePeriodCategory),
+         name: String,
+         icon: SubscriptionIcon = .default(),
+         amount: Double) {
         self.type = type
         self.detail = detail
         self.color = color

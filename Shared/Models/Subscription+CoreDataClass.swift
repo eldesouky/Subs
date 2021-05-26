@@ -11,15 +11,15 @@ import CoreData
 
 @objc(Subscription)
 public class Subscription: NSManagedObject {
-
+    
 }
 
 extension Subscription {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Subscription> {
         return NSFetchRequest<Subscription>(entityName: "Subscription")
     }
-
+    
     @NSManaged public var type: Int16
     @NSManaged public var detail: String?
     @NSManaged public var color: String?
@@ -45,29 +45,11 @@ extension Subscription {
         newSub.name = subType.getName()
         newSub.icon = subType.getIcon()
         newSub.color = subType.getColor()
-
+        
         
     }
-    
-    static func create() -> Subscription {
-        let newSub = Subscription()
-        let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
-        newSub.amount = Double.random(in: 1.99 ... 29.99).rounded(toPlaces: 2)
-        newSub.currency = Currency.€.rawValue
-        newSub.cycle = 30
-        newSub.detail = Int.random(in: 0 ... 1) == 0 ? nil : "main"
-        newSub.duration =  3000
-        newSub.firstBill = Date()
-        newSub.type = subType.rawValue
-        newSub.name = subType.getName()
-        newSub.icon = subType.getIcon()
-        newSub.color = subType.getColor()
-
-        return newSub
-    }
-
 }
 
 extension Subscription : Identifiable {
-
+    
 }

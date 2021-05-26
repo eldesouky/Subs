@@ -27,7 +27,6 @@ struct NewSubView: View {
                     fieldHeader
                     fieldBody
                 }
-                .listRowBackground(Color.clear)
             }
             .navigationBarTitle(AppLocal.default[.title_newSubscription], displayMode: .inline)
             .navigationBarItems( leading: cancelButton, trailing: addButton )
@@ -72,14 +71,18 @@ struct NewSubView: View {
             PickerCell(title: .label_itemCurrency, list: StyleSheet.currencyList())
             
             DatePickerCell(title: .label_itemFirstBill, value: $viewModel.firstBillDate)
-            OptionsCell(title: .label_itemCycle)
+            CyclePickerCell(title: .label_itemCycle)
             OptionsCell(title: .label_itemDuration)
             OptionsCell(title: .label_itemRemindMe)
         }
     }
     
     private var addButton: some View {
-        Button(action: viewModel.storeItem) {
+        Button(action: {
+            if viewModel.storeItem() {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }) {
             Text(AppLocal.default[.button_add])
         }.disabled(!viewModel.isDataValid)
     }
@@ -118,6 +121,27 @@ fileprivate struct OptionsCell: View {
     }
 }
 
+
+fileprivate struct CyclePickerCell: View {
+    @State var title: AppLocal.Strings
+//    @Binding var value: String
+    
+    @State private var data = [ ("numbers",Array(1...30).map { "\($0)" }),
+                         ("periods", TimePeriodCategory.valuesList())]
+    
+    @State var selection: [String] = ["1", TimePeriodCategory.month.value]
+    
+    @State var showPicker: Bool = false
+    var body: some View {
+        VStack {
+            Text(AppLocal.default[title])
+            MultiPicker(data: data, selection: $selection)
+                .frame(height: 40)
+        }
+    }
+}
+
+
 fileprivate struct PickerCell: View {
     var title: AppLocal.Strings
     var list: [String]
@@ -128,7 +152,7 @@ fileprivate struct PickerCell: View {
             ForEach(list, id:\.self) { item in
                 Text(item)
             }
-        }
+        }.frame(height: 40)
     }
 }
 
@@ -138,7 +162,6 @@ fileprivate struct ColorPickerCell: View {
     
     var body: some View {
         ColorPicker(AppLocal.default[title], selection: $value)
-        
     }
 }
 
@@ -148,7 +171,7 @@ fileprivate struct DatePickerCell: View {
     
     var body: some View {
         //        HStack {
-        //            Text(AppLocal.default[title])
+//                    Text(AppLocal.default[title])
         //            Spacer()
         DatePicker(AppLocal.default[title], selection: $value, displayedComponents: .date)
             .datePickerStyle(CompactDatePickerStyle())
@@ -162,7 +185,8 @@ fileprivate struct DatePickerCell: View {
 struct NewSubView_Previews: PreviewProvider {
     static var previews: some View {
         
-        NewSubView(viewModel: .init(context: PersistenceController.shared.container.viewContext) )
+        
+        NewSubView(viewModel: NewSubView.ViewModel(context: PersistenceController.shared.container.viewContext) )
     }
 }
 #endif

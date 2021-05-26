@@ -24,17 +24,19 @@ extension NewSubView {
         
         @Published var currency: String = Locale.current.currencySymbol ?? ""
         
-        @Published var isDataValid: Bool = false
+        @Published var isDataValid: Bool = true
               
         @Published var image: Image = Image("netflix_logo")
+        
+        @State var model = SubscriptionModel()
         
         override func configureLinks() {
             super.configureLinks()
             
-            Publishers.CombineLatest($name, $amount)
-                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
-                .assign(to: &$isDataValid)
-            
+//            Publishers.CombineLatest($name, $amount)
+//                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
+//                .assign(to: &$isDataValid)
+//
             $imageName
                 .filter {!$0.isEmpty}
                 .map { name in
@@ -43,8 +45,8 @@ extension NewSubView {
                 .assign(to: &$image)
         }
         
-        func storeItem() {
-            if isDataValid {
+        func storeItem() -> Bool {
+//            if isDataValid {
                 let newSub = Subscription(context: context)
                 let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
                 newSub.amount = amount
@@ -61,8 +63,10 @@ extension NewSubView {
                     try context.save()
                 } catch {
                     fatalError("error saving context while creating an object")
+//                    return false
                 }
-            }
+            return true
+//            }
         }
     }
 }
