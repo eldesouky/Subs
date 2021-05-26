@@ -7,12 +7,19 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 class BaseViewModel: ObservableObject {
+    var context: NSManagedObjectContext
     
-    init() {
+    init(context: NSManagedObjectContext) {
+        self.context = context
         configureLinks()
     }
+    
+//    init() {
+//        configureLinks()
+//    }
     
     func configureLinks() {}
 }

@@ -35,6 +35,8 @@
 		1B677C9A265B380E00816121 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C98265B380E00816121 /* AverageExpenses.swift */; };
 		A7DF5BCB265C407B005F109D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5BCA265C407B005F109D /* Reminder.swift */; };
 		A7DF5BCC265C407B005F109D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5BCA265C407B005F109D /* Reminder.swift */; };
+		A7DF5BD1265C4FC1005F109D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5BD0265C4FC1005F109D /* Test.swift */; };
+		A7DF5BD2265C4FC1005F109D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DF5BD0265C4FC1005F109D /* Test.swift */; };
 		A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */; };
 		A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F55265BA02C00194F79 /* Styleheet.swift */; };
 		A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */; };
@@ -87,6 +89,7 @@
 		1B677C95265B360C00816121 /* TotalSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSubscriptions.swift; sourceTree = "<group>"; };
 		1B677C98265B380E00816121 /* AverageExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
 		A7DF5BCA265C407B005F109D /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		A7DF5BD0265C4FC1005F109D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+ViewModel.swift"; sourceTree = "<group>"; };
 		A7E51F55265BA02C00194F79 /* Styleheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleheet.swift; sourceTree = "<group>"; };
 		A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewSubView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
 				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
 				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+				A7DF5BD0265C4FC1005F109D /* Test.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -295,6 +299,8 @@
 			dependencies = (
 			);
 			name = "Subs (iOS)";
+			packageProductDependencies = (
+			);
 			productName = "Subs (iOS)";
 			productReference = 1B677BF4265A788600816121 /* Subs.app */;
 			productType = "com.apple.product-type.application";
@@ -386,6 +392,8 @@
 				Base,
 			);
 			mainGroup = 1B677BE4265A788500816121;
+			packageReferences = (
+			);
 			productRefGroup = 1B677BF5265A788600816121 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -453,6 +461,7 @@
 				A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */,
 				1B677C96265B360C00816121 /* TotalSubscriptions.swift in Sources */,
 				1B677C99265B380E00816121 /* AverageExpenses.swift in Sources */,
+				A7DF5BD1265C4FC1005F109D /* Test.swift in Sources */,
 				1B677C32265A79D600816121 /* SubscriptionCell.swift in Sources */,
 				1B677C1A265A788600816121 /* DashboardView.swift in Sources */,
 				A7DF5BCB265C407B005F109D /* Reminder.swift in Sources */,
@@ -469,6 +478,7 @@
 				A7DF5BCC265C407B005F109D /* Reminder.swift in Sources */,
 				1B677C8B265A982C00816121 /* Color+.swift in Sources */,
 				1B677C19265A788600816121 /* SubsApp.swift in Sources */,
+				A7DF5BD2265C4FC1005F109D /* Test.swift in Sources */,
 				1B677C1D265A788600816121 /* Persistence.swift in Sources */,
 				1B677C17265A788600816121 /* Subs.xcdatamodeld in Sources */,
 				1B677C97265B360C00816121 /* TotalSubscriptions.swift in Sources */,
