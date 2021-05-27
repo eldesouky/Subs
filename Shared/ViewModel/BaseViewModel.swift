@@ -12,8 +12,8 @@ import CoreData
 class BaseViewModel: ObservableObject {
     var context: NSManagedObjectContext
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init() {
+        self.context = PersistenceController.isPreviewing ? PersistenceController.preview.container.viewContext : PersistenceController.shared.container.viewContext
         configureLinks()
     }
     

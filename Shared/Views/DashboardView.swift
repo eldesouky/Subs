@@ -28,7 +28,7 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white.opacity(0.5).edgesIgnoringSafeArea(.all)
+                Color.random.opacity(0.5).edgesIgnoringSafeArea(.all)
                 VStack(spacing: 0) {
                     List {
                         ForEach(subscriptions) { sub in
@@ -58,7 +58,7 @@ struct DashboardView: View {
                 createNewItem.toggle()
             }, label: { Label("", systemImage: "plus") }))
             .sheet(isPresented: $createNewItem) {
-                NewSubView(viewModel: .init(context: viewContext))
+                NewSubView()
             }
         }
     }
@@ -97,6 +97,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }

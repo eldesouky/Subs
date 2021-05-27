@@ -11,10 +11,10 @@ import Combine
 struct NewSubView: View {
     @Environment(\.presentationMode) private var presentationMode
     
-    @StateObject var viewModel: NewSubView.ViewModel
+    @StateObject var viewModel = ViewModel()
     
-    init(viewModel: NewSubView.ViewModel) {
-        _viewModel = .init(wrappedValue: viewModel)
+    init() {
+//        _viewModel = .init(wrappedValue: viewModel)
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
     }
@@ -37,6 +37,8 @@ struct NewSubView: View {
         
         HStack(spacing: 0) {
             ZStack {
+                Color.random.opacity(0.5).edgesIgnoringSafeArea(.all)
+
                 viewModel.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -81,6 +83,9 @@ struct NewSubView: View {
         Button(action: {
             if viewModel.storeItem() {
                 presentationMode.wrappedValue.dismiss()
+            }
+            else {
+                print("fail")
             }
         }) {
             Text(AppLocal.default[.button_add])
@@ -184,9 +189,8 @@ fileprivate struct DatePickerCell: View {
 #if DEBUG
 struct NewSubView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        
-        NewSubView(viewModel: NewSubView.ViewModel(context: PersistenceController.shared.container.viewContext) )
+
+        NewSubView()
     }
 }
 #endif
