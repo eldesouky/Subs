@@ -36,7 +36,7 @@ extension NewSubView {
 //            Publishers.CombineLatest($name, $amount)
 //                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
 //                .assign(to: &$isDataValid)
-//
+
             $imageName
                 .filter {!$0.isEmpty}
                 .map { name in
@@ -46,27 +46,13 @@ extension NewSubView {
         }
         
         func storeItem() -> Bool {
-//            if isDataValid {
-                let newSub = Subscription(context: context)
-                let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
-                newSub.amount = amount
-                newSub.currency = Currency.€.rawValue
-                newSub.cycle = 30
-                newSub.detail = Int.random(in: 0 ... 1) == 0 ? nil : "main"
-                newSub.duration =  3000
-                newSub.firstBill = Date()
-                newSub.type = subType.rawValue
-                newSub.name = subType.getName()
-                newSub.icon = subType.getIcon()
-                newSub.color = color.description
-                do {
-                    try context.save()
-                } catch {
-                    fatalError("error saving context while creating an object")
-//                    return false
-                }
+            Subscription.createDummy(context: context)
+            do {
+                try context.save()
+            } catch {
+                fatalError("error saving context while creating an object")
+            }
             return true
-//            }
         }
     }
 }
