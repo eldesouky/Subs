@@ -88,7 +88,6 @@
 		1B677C91265B300000816121 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		1B677C95265B360C00816121 /* TotalSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSubscriptions.swift; sourceTree = "<group>"; };
 		1B677C98265B380E00816121 /* AverageExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
-		1BECF4982660359800749B07 /* Assets.car */ = {isa = PBXFileReference; lastKnownFileType = file; name = Assets.car; path = ../../../../../../../../Applications/Bobby.app/Wrapper/Bobby2.app/Assets.car; sourceTree = "<group>"; };
 		A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
 		A74C19AE265EFEA60059DE3D /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
 		A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+ViewModel.swift"; sourceTree = "<group>"; };
@@ -258,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
-				1BECF4982660359800749B07 /* Assets.car */,
 				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
 				1B677C98265B380E00816121 /* AverageExpenses.swift */,
 				A74C19AE265EFEA60059DE3D /* MultiPicker.swift */,
