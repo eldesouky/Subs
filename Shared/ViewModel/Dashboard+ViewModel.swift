@@ -9,35 +9,18 @@ import Foundation
 import Combine
 
 extension DashboardView {
-    class ViewModel : ObservableObject {
+    class ViewModel : BaseViewModel {
 
-        private func addItem() {
-//            withAnimation {
-//
-//                Subscription.createDummy(context: viewContext)
-//
-//                do {
-//                    try viewContext.save()
-//                } catch {
-//
-//                    let nsError = error as NSError
-//                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//                }
-//            }
-        }
+        func addItem() {
+            Subscription.createDummy(context: context)
 
-        private func deleteItems(offsets: IndexSet) {
-//            withAnimation {
-//                offsets.map { subscriptions[$0] }.forEach(viewContext.delete)
-//
-//                do {
-//                    try viewContext.save()
-//                } catch {
-//
-//                    let nsError = error as NSError
-//                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//                }
-//            }
+              do {
+                  try context.save()
+              } catch {
+
+                  let nsError = error as NSError
+                  fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+              }
         }
     }
 }

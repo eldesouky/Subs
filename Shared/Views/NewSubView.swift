@@ -60,6 +60,9 @@ struct NewSubView: View {
                 .frame(height: 45, alignment: .center)
                 .border(Color.black, width: 1)
                 .keyboardType(.decimalPad)
+            
+            
+//            Text("\(PresistanceController.isPreviewing)")
         }
         .cornerRadius(10)
     }

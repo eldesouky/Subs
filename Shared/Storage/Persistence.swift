@@ -27,13 +27,12 @@ struct PersistenceController {
         return result
     }()
 
-    var isPreviewing = false
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Subs")
         if inMemory {
-            isPreviewing = true
+            PersistenceController.isPreviewing = true
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in

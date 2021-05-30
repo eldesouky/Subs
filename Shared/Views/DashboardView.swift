@@ -19,6 +19,8 @@ struct DashboardView: View {
     @State var showTotalSubscriptions = false
     @State var createNewItem: Bool = false
     
+    @StateObject var viewModel = ViewModel()
+    
     init(){
         UITableView.appearance().separatorStyle = .none
         UITableViewCell.appearance().backgroundColor = .clear
@@ -27,32 +29,27 @@ struct DashboardView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.random.opacity(0.5).edgesIgnoringSafeArea(.all)
-                VStack(spacing: 0) {
-                    List {
-                        ForEach(subscriptions) { sub in
-                            SubscriptionCell(content: sub)
-                                .listRowInsets(EdgeInsets())
-                                .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                            
-                        }
-                        .onDelete(perform: deleteItems)
+            VStack(spacing: 0) {
+                List {
+                    ForEach(subscriptions) { sub in
+                        SubscriptionCell(content: sub)
+                            .listRowInsets(EdgeInsets())
+                            .padding(.bottom, 10)
                     }
-                    if showTotalSubscriptions{
-                        TotalSubscriptions()
-                            .transition(.move(edge: .bottom))
-                    }
-                    AverageExpenses()
-                        .onTapGesture {
-                            withAnimation {
-                                showTotalSubscriptions.toggle()
-                            }
-                        }
-                    
                 }
-                .background(Color.white)
+                if showTotalSubscriptions{
+                    TotalSubscriptions()
+                        .transition(.move(edge: .bottom))
+                }
+                AverageExpenses()
+                    .onTapGesture {
+                        withAnimation {
+                            showTotalSubscriptions.toggle()
+                        }
+                    }
+                
             }
+            .background(Color.white)
             .navigationBarTitle("Subscriptions", displayMode: .inline)
             .navigationBarItems(leading: EditButton(),trailing: Button(action: {
                 createNewItem.toggle()
@@ -65,30 +62,7 @@ struct DashboardView: View {
     
     private func addItem() {
         withAnimation {
-            
-            Subscription.createDummy(context: viewContext)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { subscriptions[$0] }.forEach(viewContext.delete)
-            
-            do {
-                try viewContext.save()
-            } catch {
-                
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            viewModel.addItem()
         }
     }
 }
