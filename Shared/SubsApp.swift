@@ -13,8 +13,7 @@ struct SubsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            DashboardView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                DashboardView().environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

@@ -10,14 +10,14 @@ import CoreData
 
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Subscription.firstBill, ascending: true)],
         animation: .default)
     private var subscriptions: FetchedResults<Subscription>
     
     @State var showTotalSubscriptions = false
-
+    @State var createNewItem: Bool = false
     
     init(){
         UITableView.appearance().separatorStyle = .none
@@ -35,7 +35,7 @@ struct DashboardView: View {
                             SubscriptionCell(content: sub)
                                 .listRowInsets(EdgeInsets())
                                 .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-
+                            
                         }
                         .onDelete(perform: deleteItems)
                     }
@@ -49,21 +49,25 @@ struct DashboardView: View {
                                 showTotalSubscriptions.toggle()
                             }
                         }
-                   
+                    
                 }
                 .background(Color.white)
-
             }
             .navigationBarTitle("Subscriptions", displayMode: .inline)
-            .navigationBarItems(leading: EditButton(),trailing: Button(action: addItem, label: { Label("", systemImage: "plus") }))
+            .navigationBarItems(leading: EditButton(),trailing: Button(action: {
+                createNewItem.toggle()
+            }, label: { Label("", systemImage: "plus") }))
+            .sheet(isPresented: $createNewItem) {
+                NewSubView(viewModel: .init(context: viewContext))
+            }
         }
     }
-
+    
     private func addItem() {
         withAnimation {
             
             Subscription.createDummy(context: viewContext)
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -73,15 +77,15 @@ struct DashboardView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { subscriptions[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
-               
+                
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
@@ -93,7 +97,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DashboardView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-          //  DashboardView().previewDevice("iPad (8th generation)").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
     }
 }

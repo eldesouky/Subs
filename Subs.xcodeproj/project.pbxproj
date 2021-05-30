@@ -33,6 +33,18 @@
 		1B677C97265B360C00816121 /* TotalSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C95265B360C00816121 /* TotalSubscriptions.swift */; };
 		1B677C99265B380E00816121 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C98265B380E00816121 /* AverageExpenses.swift */; };
 		1B677C9A265B380E00816121 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C98265B380E00816121 /* AverageExpenses.swift */; };
+		A74C19A9265EE95A0059DE3D /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */; };
+		A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */; };
+		A74C19AF265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
+		A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
+		A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */; };
+		A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F55265BA02C00194F79 /* Styleheet.swift */; };
+		A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */; };
+		A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F59265BA23000194F79 /* NewSubView.swift */; };
+		A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F5B265BD02100194F79 /* BaseViewModel.swift */; };
+		A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F66265BD8FE00194F79 /* AppLocal.swift */; };
+		A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F69265BD9B800194F79 /* Local+Strings.swift */; };
+		A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +88,16 @@
 		1B677C91265B300000816121 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		1B677C95265B360C00816121 /* TotalSubscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSubscriptions.swift; sourceTree = "<group>"; };
 		1B677C98265B380E00816121 /* AverageExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
+		A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
+		A74C19AE265EFEA60059DE3D /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
+		A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+ViewModel.swift"; sourceTree = "<group>"; };
+		A7E51F55265BA02C00194F79 /* Styleheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleheet.swift; sourceTree = "<group>"; };
+		A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewSubView+ViewModel.swift"; sourceTree = "<group>"; };
+		A7E51F59265BA23000194F79 /* NewSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSubView.swift; sourceTree = "<group>"; };
+		A7E51F5B265BD02100194F79 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A7E51F66265BD8FE00194F79 /* AppLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocal.swift; sourceTree = "<group>"; };
+		A7E51F69265BD9B800194F79 /* Local+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Local+Strings.swift"; sourceTree = "<group>"; };
+		A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +150,7 @@
 				1B677BEC265A788500816121 /* SubsApp.swift */,
 				1B677C88265A981600816121 /* Native Extenstions */,
 				1B677C87265A973800816121 /* Models */,
+				A7E51F52265B9FC900194F79 /* ViewModel */,
 				1B677C8C265B2FA300816121 /* Views */,
 				1B677C8D265B2FC100816121 /* Storage */,
 				1B677C94265B302100816121 /* Resources */,
@@ -185,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				1B677C81265A972900816121 /* Subscription+CoreDataClass.swift */,
+				A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,10 +224,9 @@
 		1B677C8C265B2FA300816121 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
 				1B677BED265A788500816121 /* DashboardView.swift */,
-				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
-				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+				A7E51F59265BA23000194F79 /* NewSubView.swift */,
+				A7DF5BC6265C2084005F109D /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,11 +243,44 @@
 		1B677C94265B302100816121 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7E51F68265BD9A100194F79 /* Localization */,
+				A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */,
+				A7E51F55265BA02C00194F79 /* Styleheet.swift */,
 				1B677C8E265B2FE900816121 /* SubscriptionType.swift */,
 				1B677C91265B300000816121 /* Currency.swift */,
 				1B677BEF265A788600816121 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7DF5BC6265C2084005F109D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
+				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
+				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+				A74C19AE265EFEA60059DE3D /* MultiPicker.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		A7E51F52265B9FC900194F79 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */,
+				A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */,
+				A7E51F5B265BD02100194F79 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A7E51F68265BD9A100194F79 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				A7E51F66265BD8FE00194F79 /* AppLocal.swift */,
+				A7E51F69265BD9B800194F79 /* Local+Strings.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +299,8 @@
 			dependencies = (
 			);
 			name = "Subs (iOS)";
+			packageProductDependencies = (
+			);
 			productName = "Subs (iOS)";
 			productReference = 1B677BF4265A788600816121 /* Subs.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +392,8 @@
 				Base,
 			);
 			mainGroup = 1B677BE4265A788500816121;
+			packageReferences = (
+			);
 			productRefGroup = 1B677BF5265A788600816121 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,16 +445,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B677C92265B300000816121 /* Currency.swift in Sources */,
+				A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */,
 				1B677C8F265B2FE900816121 /* SubscriptionType.swift in Sources */,
+				A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */,
+				A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */,
 				1B677C83265A972900816121 /* Subscription+CoreDataClass.swift in Sources */,
+				A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */,
+				A74C19A9265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C8A265A982C00816121 /* Color+.swift in Sources */,
 				1B677C18265A788600816121 /* SubsApp.swift in Sources */,
 				1B677C1C265A788600816121 /* Persistence.swift in Sources */,
 				1B677C16265A788600816121 /* Subs.xcdatamodeld in Sources */,
+				A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */,
+				A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */,
+				A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */,
+				A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */,
 				1B677C96265B360C00816121 /* TotalSubscriptions.swift in Sources */,
 				1B677C99265B380E00816121 /* AverageExpenses.swift in Sources */,
 				1B677C32265A79D600816121 /* SubscriptionCell.swift in Sources */,
 				1B677C1A265A788600816121 /* DashboardView.swift in Sources */,
+				A74C19AF265EFEA60059DE3D /* MultiPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,9 +476,11 @@
 				1B677C90265B2FE900816121 /* SubscriptionType.swift in Sources */,
 				1B677C84265A972900816121 /* Subscription+CoreDataClass.swift in Sources */,
 				1B677C8B265A982C00816121 /* Color+.swift in Sources */,
+				A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C19265A788600816121 /* SubsApp.swift in Sources */,
 				1B677C1D265A788600816121 /* Persistence.swift in Sources */,
 				1B677C17265A788600816121 /* Subs.xcdatamodeld in Sources */,
+				A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */,
 				1B677C97265B360C00816121 /* TotalSubscriptions.swift in Sources */,
 				1B677C9A265B380E00816121 /* AverageExpenses.swift in Sources */,
 				1B677C33265A79D600816121 /* SubscriptionCell.swift in Sources */,
@@ -565,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4FWWLJ39J9;
+				DEVELOPMENT_TEAM = 5P49P82EQF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -587,7 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4FWWLJ39J9;
+				DEVELOPMENT_TEAM = 5P49P82EQF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
