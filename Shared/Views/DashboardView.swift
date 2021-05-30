@@ -50,7 +50,7 @@ struct DashboardView: View {
                 
             }
             .background(Color.white)
-            .navigationBarTitle("Subscriptions", displayMode: .inline)
+            .navigationBarTitle(AppLocal.default[.title_subscription], displayMode: .inline)
             .navigationBarItems(leading: EditButton(),trailing: Button(action: {
                 createNewItem.toggle()
             }, label: { Label("", systemImage: "plus") }))
