@@ -37,6 +37,10 @@
 		A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */; };
 		A74C19AF265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
 		A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
+		A799AE97266402080009EFD6 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE96266402080009EFD6 /* RemindMe.swift */; };
+		A799AE98266402080009EFD6 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE96266402080009EFD6 /* RemindMe.swift */; };
+		A799AE9D26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
+		A799AE9E26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
 		A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */; };
 		A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F55265BA02C00194F79 /* Styleheet.swift */; };
 		A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */; };
@@ -45,6 +49,10 @@
 		A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F66265BD8FE00194F79 /* AppLocal.swift */; };
 		A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F69265BD9B800194F79 /* Local+Strings.swift */; };
 		A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */; };
+		A7EDB3BB2660160000B66C0D /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDB3BA2660160000B66C0D /* Cycle.swift */; };
+		A7EDB3BC2660160000B66C0D /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDB3BA2660160000B66C0D /* Cycle.swift */; };
+		A7EDB3BE2660161500B66C0D /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDB3BD2660161500B66C0D /* Duration.swift */; };
+		A7EDB3BF2660161500B66C0D /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDB3BD2660161500B66C0D /* Duration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,8 @@
 		1B677C98265B380E00816121 /* AverageExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
 		A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
 		A74C19AE265EFEA60059DE3D /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
+		A799AE96266402080009EFD6 /* RemindMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMe.swift; sourceTree = "<group>"; };
+		A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+ViewModel.swift"; sourceTree = "<group>"; };
 		A7E51F55265BA02C00194F79 /* Styleheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleheet.swift; sourceTree = "<group>"; };
 		A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewSubView+ViewModel.swift"; sourceTree = "<group>"; };
@@ -98,6 +108,8 @@
 		A7E51F66265BD8FE00194F79 /* AppLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocal.swift; sourceTree = "<group>"; };
 		A7E51F69265BD9B800194F79 /* Local+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Local+Strings.swift"; sourceTree = "<group>"; };
 		A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegex.swift; sourceTree = "<group>"; };
+		A7EDB3BA2660160000B66C0D /* Cycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
+		A7EDB3BD2660161500B66C0D /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +221,10 @@
 			children = (
 				1B677C81265A972900816121 /* Subscription+CoreDataClass.swift */,
 				A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */,
+				1B677C91265B300000816121 /* Currency.swift */,
+				A7EDB3BA2660160000B66C0D /* Cycle.swift */,
+				A7EDB3BD2660161500B66C0D /* Duration.swift */,
+				A799AE96266402080009EFD6 /* RemindMe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,7 +263,6 @@
 				A7E51F6F265C0A4800194F79 /* ValidationRegex.swift */,
 				A7E51F55265BA02C00194F79 /* Styleheet.swift */,
 				1B677C8E265B2FE900816121 /* SubscriptionType.swift */,
-				1B677C91265B300000816121 /* Currency.swift */,
 				1B677BEF265A788600816121 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -260,6 +275,7 @@
 				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
 				1B677C98265B380E00816121 /* AverageExpenses.swift */,
 				A74C19AE265EFEA60059DE3D /* MultiPicker.swift */,
+				A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -267,9 +283,9 @@
 		A7E51F52265B9FC900194F79 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A7E51F5B265BD02100194F79 /* BaseViewModel.swift */,
 				A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */,
 				A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */,
-				A7E51F5B265BD02100194F79 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -446,6 +462,7 @@
 			files = (
 				1B677C92265B300000816121 /* Currency.swift in Sources */,
 				A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */,
+				A7EDB3BB2660160000B66C0D /* Cycle.swift in Sources */,
 				1B677C8F265B2FE900816121 /* SubscriptionType.swift in Sources */,
 				A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */,
 				A7E51F67265BD8FE00194F79 /* AppLocal.swift in Sources */,
@@ -453,7 +470,10 @@
 				A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */,
 				A74C19A9265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C8A265A982C00816121 /* Color+.swift in Sources */,
+				A799AE97266402080009EFD6 /* RemindMe.swift in Sources */,
+				A7EDB3BE2660161500B66C0D /* Duration.swift in Sources */,
 				1B677C18265A788600816121 /* SubsApp.swift in Sources */,
+				A799AE9D26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */,
 				1B677C1C265A788600816121 /* Persistence.swift in Sources */,
 				1B677C16265A788600816121 /* Subs.xcdatamodeld in Sources */,
 				A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */,
@@ -472,14 +492,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EDB3BF2660161500B66C0D /* Duration.swift in Sources */,
 				1B677C93265B300000816121 /* Currency.swift in Sources */,
 				1B677C90265B2FE900816121 /* SubscriptionType.swift in Sources */,
 				1B677C84265A972900816121 /* Subscription+CoreDataClass.swift in Sources */,
 				1B677C8B265A982C00816121 /* Color+.swift in Sources */,
+				A7EDB3BC2660160000B66C0D /* Cycle.swift in Sources */,
+				A799AE9E26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */,
 				A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C19265A788600816121 /* SubsApp.swift in Sources */,
 				1B677C1D265A788600816121 /* Persistence.swift in Sources */,
 				1B677C17265A788600816121 /* Subs.xcdatamodeld in Sources */,
+				A799AE98266402080009EFD6 /* RemindMe.swift in Sources */,
 				A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */,
 				1B677C97265B360C00816121 /* TotalSubscriptions.swift in Sources */,
 				1B677C9A265B380E00816121 /* AverageExpenses.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import CoreData
 
 extension NewSubView {
     class ViewModel : BaseViewModel {
@@ -16,7 +15,7 @@ extension NewSubView {
         @Published var subDescription: String = ""
         @Published var subCategory: String = ""
         @Published var imageName: String = ""
-        @Published var amount: Double = 0.0
+        @Published var amount: Double? = 0.0
         @Published var color: Color = Color.red
         @Published var firstBillDate: Date = Date()
         @Published var duration: String = ""
@@ -32,7 +31,6 @@ extension NewSubView {
         
         override func configureLinks() {
             super.configureLinks()
-            
 //            Publishers.CombineLatest($name, $amount)
 //                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
 //                .assign(to: &$isDataValid)
@@ -48,7 +46,7 @@ extension NewSubView {
         func storeItem() -> Bool {
             Subscription.createDummy(context: context)
             do {
-                try context.save()
+                try saveContext()
             } catch {
                 fatalError("error saving context while creating an object")
             }
