@@ -31,7 +31,7 @@ extension AppLocal {
 
         init() {
             localValues[Strings.title_newSubscription] = "New Subscription"
-            localValues[Strings.title_subscription] = "Subscription"
+            localValues[Strings.title_subscription] = "Subscriptions"
             
             localValues[Strings.button_add] = "Add"
             localValues[Strings.button_cancel] = "Cancel"
