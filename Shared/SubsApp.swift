@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 @main
 struct SubsApp: App {
     let persistenceController = PersistenceController.shared
+    let sheetManager: PartialSheetManager = PartialSheetManager()
 
     var body: some Scene {
         WindowGroup {
-                DashboardView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            DashboardView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environmentObject(sheetManager)
+                    
         }
     }
 }

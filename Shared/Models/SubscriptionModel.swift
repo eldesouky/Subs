@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-enum TimePeriod: Int16, CaseIterable {
-    case day = 0
-    case month = 1
-    case year = 2
+enum TimePeriod: Int, CaseIterable {
+    case none = 0
+    case day = 1
+    case month = 2
+    case year = 3
     
     var presentationValue: String {
         switch self {
+        case .none:
+            return ""
         case .day:
             return "Day(s)"
         case .month:
@@ -29,12 +32,12 @@ final class SubscriptionModel: Identifiable {
     
     var name: String = ""
     var type: SubscriptionType = .appleArcade
-    var detail: String?
+    var detail: String = ""
     var color: Color = .white
     var firstBill: Date = .init()
     var cycle: Cycle = Cycle()
     var duration: Duration = .init()
-    var reminder: Int16?
+    var reminder: Int?
     var currency: Currency = .default()
     var icon: String = "netflix_2"
     var amount: Double = 0.0
@@ -53,7 +56,7 @@ final class SubscriptionModel: Identifiable {
         } else {
             self.color = Color.white
         }
-        self.detail = item.detail
+        self.detail = item.detail ?? ""
         self.firstBill = item.firstBill
         self.cycle = Cycle(value: item.cycle)
         self.duration = Duration(value: item.duration)
@@ -62,6 +65,5 @@ final class SubscriptionModel: Identifiable {
             self.icon = selectedIcon
         }
         self.amount = item.amount
-    }
-        
+    }        
 }

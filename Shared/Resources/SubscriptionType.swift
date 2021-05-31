@@ -43,7 +43,7 @@ enum SubscriptionType: Int16, CaseIterable {
         case .appleArcade, .appleMusic:
             return  "000000"
         case .youtubePremium, .youtubeMusic:
-            return  UIColor.red.hexStringFromColor()
+            return  Color.red.hexStringFromColor()
         }
     }
 }

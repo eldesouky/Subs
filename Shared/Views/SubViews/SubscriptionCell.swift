@@ -58,7 +58,7 @@ struct SubscriptionCell_Previews: PreviewProvider {
         sub.icon = "apple_logo"
         sub.amount = 7.99
         sub.currency = Currency.default().symbol
-        sub.color = UIColor.red.hexStringFromColor()
+        sub.color = Color.red.hexStringFromColor()
    
         return SubscriptionCell(content: sub)
     }

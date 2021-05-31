@@ -55,4 +55,18 @@ extension Subscription : Identifiable {
     func model() -> SubscriptionModel {
         return .init(dbModel: self)
     }
+    
+    func update(model: SubscriptionModel) {
+        let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
+        self.amount = model.amount
+        self.currency = model.currency.locale.identifier
+        self.cycle = "\(model.cycle.number.intValue)-\(model.cycle.period.rawValue)"
+        self.detail = model.detail.isEmpty ? nil : model.detail
+        self.duration = "\(model.duration.number.intValue)-\(model.duration.period.rawValue)"
+        self.firstBill = model.firstBill
+        self.type = subType.rawValue
+        self.name = model.name
+        self.icon = model.icon
+        self.color = model.color.hexStringFromColor()
+    }
 }

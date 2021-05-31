@@ -11,30 +11,35 @@ import Combine
 extension NewSubView {
     class ViewModel : BaseViewModel {
         
-        @Published var name: String = ""
-        @Published var subDescription: String = ""
+        @Published var model = SubscriptionModel()
+        
         @Published var subCategory: String = ""
         @Published var imageName: String = ""
-        @Published var amount: Double? = 0.0
-        @Published var color: Color = Color.red
-        @Published var firstBillDate: Date = Date()
         @Published var duration: String = ""
         @Published var remindMe: String? = nil
         
-        @Published var currency: String = Locale.current.currencySymbol ?? ""
-        
         @Published var isDataValid: Bool = true
-              
+        
         @Published var image: Image = Image("netflix_logo")
         
-        @State var model = SubscriptionModel()
+        
+        @Published var selection1: Int = 0
+        @Published var selection2: Int = 0
+        
+        private var cancellable = Set<AnyCancellable>()
         
         override func configureLinks() {
             super.configureLinks()
-//            Publishers.CombineLatest($name, $amount)
+            
+            Publishers.CombineLatest($selection1, $selection2)
+                .sink(receiveValue: { (p1, p2) in
+                    self.model.cycle.update(numberIndex: p1, periodIndex: p2)
+                }).store(in: &cancellable)
+            
+//            Publishers.CombineLatest($model.name, $model.amount)
 //                .map { StyleSheet.validate(input: $0) && StyleSheet.validate(input: "\($1)")}
 //                .assign(to: &$isDataValid)
-
+            
             $imageName
                 .filter {!$0.isEmpty}
                 .map { name in
@@ -44,7 +49,8 @@ extension NewSubView {
         }
         
         func storeItem() -> Bool {
-            Subscription.createDummy(context: context)
+            let dbModel = Subscription(context: self.context)
+            dbModel.update(model: model)
             do {
                 try saveContext()
             } catch {

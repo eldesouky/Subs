@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,7 @@
 		A799AE98266402080009EFD6 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE96266402080009EFD6 /* RemindMe.swift */; };
 		A799AE9D26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
 		A799AE9E26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
+		A7BC24672664358F00DF04F8 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = A7BC24662664358F00DF04F8 /* PartialSheet */; };
 		A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */; };
 		A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F55265BA02C00194F79 /* Styleheet.swift */; };
 		A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E51F57265BA21F00194F79 /* NewSubView+ViewModel.swift */; };
@@ -117,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BC24672664358F00DF04F8 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +242,7 @@
 		1B677C8C265B2FA300816121 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A791FC7126653A04000DE0F7 /* SubViews */,
 				1B677BED265A788500816121 /* DashboardView.swift */,
 				A7E51F59265BA23000194F79 /* NewSubView.swift */,
 				A7DF5BC6265C2084005F109D /* Custom */,
@@ -268,12 +271,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A7DF5BC6265C2084005F109D /* Custom */ = {
+		A791FC7126653A04000DE0F7 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
 				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
 				1B677C98265B380E00816121 /* AverageExpenses.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		A7DF5BC6265C2084005F109D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
 				A74C19AE265EFEA60059DE3D /* MultiPicker.swift */,
 				A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */,
 			);
@@ -316,6 +326,7 @@
 			);
 			name = "Subs (iOS)";
 			packageProductDependencies = (
+				A7BC24662664358F00DF04F8 /* PartialSheet */,
 			);
 			productName = "Subs (iOS)";
 			productReference = 1B677BF4265A788600816121 /* Subs.app */;
@@ -409,6 +420,7 @@
 			);
 			mainGroup = 1B677BE4265A788500816121;
 			packageReferences = (
+				A7BC24652664358F00DF04F8 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 1B677BF5265A788600816121 /* Products */;
 			projectDirPath = "";
@@ -886,6 +898,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7BC24652664358F00DF04F8 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7BC24662664358F00DF04F8 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7BC24652664358F00DF04F8 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1B677BEA265A788500816121 /* Subs.xcdatamodeld */ = {
