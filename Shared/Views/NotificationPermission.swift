@@ -7,16 +7,27 @@
 
 import SwiftUI
 
+struct Blur: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
+}
+
 struct NotificationPermission: View {
-    let alertWidth = UIScreen.main.bounds.width * 0.65
-    var alertHeight: CGFloat { alertWidth * 1 }
+    @Binding var presentationMode: Bool
+    
+    @State var animateBlur: Bool = false
+    @State var animateAlertView: Bool = false
+    @State var animateBellView: Angle = Angle(degrees: 0)
+
+    let alertWidth = UIScreen.main.bounds.width * 0.7
+    var alertHeight: CGFloat { alertWidth * 1.1 }
     
     var body: some View {
         ZStack {
-            Color.black
-                .opacity(0.1)
-            .edgesIgnoringSafeArea(.all)
-            .blur(radius: 20)
+            Blur(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
+                .edgesIgnoringSafeArea(.all)
+                .opacity(animateBlur ? 1 : 0)
             
             VStack {
                 HStack {
@@ -30,21 +41,26 @@ struct NotificationPermission: View {
                     Spacer()
 
                     Button(action: {
-                        
+                        presentationMode.toggle()
                     }
                     , label: {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.gray)
                     })
                 }
-                .padding([.horizontal, .top])
+                .padding()
 
+                Image(systemName: "bell.fill")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(.blue)
+                    .rotationEffect(animateBellView)
                 HStack {
-                    Image(systemName: "bell.fill")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                   
+
                     Spacer()
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .center) {
                         Text("Notifications")
                             .font(.subheadline)
                             .bold()
@@ -56,7 +72,7 @@ struct NotificationPermission: View {
                     Spacer()
 
                 }
-                .padding()
+                .padding(.bottom)
                 Button(action: {
                     
                 }
@@ -67,25 +83,51 @@ struct NotificationPermission: View {
                 .frame(width: alertWidth * 0.7, height: 30)
                 .background(Color.gray.opacity(0.5))
                 .cornerRadius(20)
-                                Spacer()
 
                 Divider()
                 Text("Notification permission is necessary to allow the app to notify about billings of subscriptions you wish to track")
                     .font(.caption2)
                     .foregroundColor(.gray)
                     .padding(.horizontal)
-                Spacer()
+                    .padding(.bottom, 10)
+
 
             }
-            .frame(width:  alertWidth, height: alertHeight)
+            .frame(width:  alertWidth)
             .background(Color.white)
             .cornerRadius(20)
+            .offset(x: animateAlertView ? 0 : 500)
         }
+        .onAppear(perform: {
+            withAnimation(.easeIn(duration: 0.5)){
+                animateBlur.toggle()
+            }
+            
+            withAnimation( .interpolatingSpring(mass: 1, stiffness: 80, damping: 10, initialVelocity: 0)
+                            .delay(0.2))
+            {
+                animateAlertView.toggle()
+            }
+            
+            withAnimation(.easeIn(duration: 0.08).repeatCount(15)){
+                if animateBellView.degrees > 0 {
+                    animateBellView = Angle(degrees: -20)
+                }
+                else {
+                    animateBellView = Angle(degrees: 20)
+                }
+            }
+            animateBellView = Angle(degrees: 0)
+        })
     }
 }
 
 struct NotificationPermission_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationPermission()
+        Group {
+            NotificationPermission(presentationMode: .constant(true))
+            NotificationPermission(presentationMode: .constant(true))
+                .previewDevice("iPad (8th generation)")
+        }
     }
 }
