@@ -230,7 +230,6 @@
 				1B677BED265A788500816121 /* DashboardView.swift */,
 				A7E51F59265BA23000194F79 /* NewSubView.swift */,
 				A7DF5BC6265C2084005F109D /* Custom */,
-				1B677C9B265C0F3F00816121 /* NotificationPermission.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +259,7 @@
 		A7DF5BC6265C2084005F109D /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				1B677C9B265C0F3F00816121 /* NotificationPermission.swift */,
 				1BA5C3692666E426000907E9 /* AverageExpenses.swift */,
 				1BA5C3682666E426000907E9 /* TotalSubscriptions.swift */,
 				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
