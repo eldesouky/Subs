@@ -32,10 +32,10 @@ struct NotificationPermission: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                       Text("Permission Request")
+                        Text(AppLocal.default[.title_permission])
                         .font(.footnote)
                         .foregroundColor(.gray)
-                        Text("Needs Permission")
+                        Text(AppLocal.default[.label_premissionNeeded])
                          .font(.headline)
                     }
                     Spacer()
@@ -56,16 +56,15 @@ struct NotificationPermission: View {
                     .foregroundColor(.blue)
                     .rotationEffect(animateBellView)
                 HStack {
-                   
-
+                
                     Spacer()
 
                     VStack(alignment: .center) {
-                        Text("Notifications")
+                        Text(AppLocal.default[.label_notifications])
                             .font(.subheadline)
                             .bold()
                         
-                        Text("Allow to notify you on billing date")
+                        Text(AppLocal.default[.label_notificationsBrief])
                             .font(.system(size: 9, weight: .light))
                          .foregroundColor(.gray)
                     }
@@ -77,15 +76,17 @@ struct NotificationPermission: View {
                     
                 }
                 , label: {
-                    Text("ALLOW")
-                        .font(.system(size: 9, weight: .bold))
+                    Text(AppLocal.default[.button_allow])
+                        .font(.body)
+                        .bold()
                 })
                 .frame(width: alertWidth * 0.7, height: 30)
                 .background(Color.gray.opacity(0.5))
                 .cornerRadius(20)
 
                 Divider()
-                Text("Notification permission is necessary to allow the app to notify about billings of subscriptions you wish to track")
+                    .background(Color.white)
+                Text(AppLocal.default[.label_notificationsExplanition])
                     .font(.caption2)
                     .foregroundColor(.gray)
                     .padding(.horizontal)
@@ -94,7 +95,7 @@ struct NotificationPermission: View {
 
             }
             .frame(width:  alertWidth)
-            .background(Color.white)
+            .background(Color.secondarySystemBackground)
             .cornerRadius(20)
             .offset(x: animateAlertView ? 0 : 500)
         }
@@ -126,6 +127,8 @@ struct NotificationPermission_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NotificationPermission(presentationMode: .constant(true))
+            NotificationPermission(presentationMode: .constant(true))
+                .preferredColorScheme(.dark)
             NotificationPermission(presentationMode: .constant(true))
                 .previewDevice("iPad (8th generation)")
         }
