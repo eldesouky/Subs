@@ -49,7 +49,7 @@ struct NewSubView: View {
                         .background(Color.clear)
                         .padding(10)
                     
-                    Text("Tab To\nChange")
+                    Text(AppLocal.default[.label_itemImageTabToChange])
                         .font(.caption)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -61,7 +61,7 @@ struct NewSubView: View {
                     //                    viewModel.imageName = "netflix_logo"
                 })
                 
-                CurrencyTextField("Amount", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: viewModel.currency.symbol)
+                CurrencyTextField("", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: viewModel.currency.symbol)
                     .multilineTextAlignment(TextAlignment.center)
                     .frame(width: 150, height: 45, alignment: .center)
                 

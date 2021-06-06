@@ -22,25 +22,25 @@ enum RemindMe: Int16 {
     var stringValue: String {
         switch self {
         case .none:
-            return "None"
+            return AppLocal.default[.label_reminderNone]
         case .min5:
-            return "5 minutes before"
+            return AppLocal.default[.label_reminderMinutes5]
         case .min10:
-            return "10 minutes before"
+            return AppLocal.default[.label_reminderMinutes10]
         case .min15:
-            return "15 minutes before"
+            return AppLocal.default[.label_reminderMinutes15]
         case .min30:
-            return "30 minutes before"
+            return AppLocal.default[.label_reminderMinutes30]
         case .hour1:
-            return "1 hour before"
+            return AppLocal.default[.label_reminderMinutes30]
         case .hour2:
-            return "2 hours before"
+            return AppLocal.default[.label_reminderHours2]
         case .day1:
-            return "1 day before"
+            return AppLocal.default[.label_reminderDay1]
         case .day2:
-            return "2 days before"
+            return AppLocal.default[.label_reminderDays2]
         case .week1:
-            return "1 week before"
+            return AppLocal.default[.label_reminderWeek1]
         }
     }
 }

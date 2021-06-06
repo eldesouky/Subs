@@ -56,13 +56,25 @@ extension AppLocal {
             localValues[Strings.label_itemPlaceholderDuration] = "Duration"
             localValues[Strings.label_itemPlaceholderRemindMe] = "Remind Me"
             localValues[Strings.label_itemPlaceholderCurrency] = "Currency"
+            localValues[Strings.label_itemImageTabToChange] = "Tab To\nChange"
+            
             
             localValues[Strings.title_permission] = "Permission Request"
             localValues[Strings.label_premissionNeeded] = "Needs Permission"
             localValues[Strings.label_notifications] = "Notifications"
             localValues[Strings.label_notificationsBrief] = "Allow to notify you on billing date"
             localValues[Strings.label_notificationsExplanition] = "Notification permission is necessary to allow the app to notify about billings of subscriptions you wish to track"
-
+            
+            localValues[Strings.label_reminderNone] = "None"
+            localValues[Strings.label_reminderMinutes5] =  "5 minutes before"
+            localValues[Strings.label_reminderMinutes10] =  "10 minutes before"
+            localValues[Strings.label_reminderMinutes15] =  "15 minutes before"
+            localValues[Strings.label_reminderMinutes30] =  "30 minutes before"
+            localValues[Strings.label_reminderHour1] =  "1 hour before"
+            localValues[Strings.label_reminderHours2] =  "2 hours before"
+            localValues[Strings.label_reminderDay1] =  "1 day before"
+            localValues[Strings.label_reminderDays2] =  "2 days before"
+            localValues[Strings.label_reminderWeek1] =  "1 week before"
             
         }
     }
@@ -88,6 +100,7 @@ extension AppLocal {
         case label_itemDuration
         case label_itemRemindMe
         case label_itemCurrency
+        case label_itemImageTabToChange
         
         case label_itemPlaceholderName
         case label_itemPlaceholderDescription
@@ -105,6 +118,17 @@ extension AppLocal {
         case label_notifications
         case label_notificationsBrief
         case label_notificationsExplanition
+        
+        case label_reminderNone
+        case label_reminderMinutes5
+        case label_reminderMinutes10
+        case label_reminderMinutes15
+        case label_reminderMinutes30
+        case label_reminderHour1
+        case label_reminderHours2
+        case label_reminderDay1
+        case label_reminderDays2
+        case label_reminderWeek1
     }
 }
 
