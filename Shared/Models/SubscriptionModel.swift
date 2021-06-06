@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-enum TimePeriod: Int, CaseIterable {
-    case none = 0
-    case day = 1
-    case month = 2
-    case year = 3
-    
-    var presentationValue: String {
-        switch self {
-        case .none:
-            return ""
-        case .day:
-            return "Day(s)"
-        case .month:
-            return "Month(s)"
-        case .year:
-            return "Year(s)"
-        }
-    }
-}
-
 final class SubscriptionModel: Identifiable {
     let id = UUID()
     
@@ -37,9 +17,9 @@ final class SubscriptionModel: Identifiable {
     var firstBill: Date = .init()
     var cycle: Cycle = Cycle()
     var duration: Duration = .init()
-    var reminder: Int?
+    var reminder: RemindMe = .none
     var currency: Currency = .default()
-    var icon: String = "netflix_2"
+    var icon: String = "netflix_logo"
     var amount: Double = 0.0
     
     init() {}
@@ -58,12 +38,14 @@ final class SubscriptionModel: Identifiable {
         }
         self.detail = item.detail ?? ""
         self.firstBill = item.firstBill
-        self.cycle = Cycle(value: item.cycle)
-        self.duration = Duration(value: item.duration)
+        self.cycle = Cycle(periodCount: item.cyclePeriodCount, periodType: item.cyclePeriodType)
+        self.duration = Duration(periodCount: item.durationPeriodCount, periodType: item.durationPeriodType)
         self.name = item.name
         if let selectedIcon = item.icon {
             self.icon = selectedIcon
         }
         self.amount = item.amount
-    }        
+        
+        self.reminder = RemindMe(rawValue: item.reminder) ?? .none
+    }
 }

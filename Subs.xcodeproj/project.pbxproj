@@ -31,16 +31,20 @@
 		1B677C93265B300000816121 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C91265B300000816121 /* Currency.swift */; };
 		1B677C9C265C0F3F00816121 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C9B265C0F3F00816121 /* NotificationPermission.swift */; };
 		1B677C9D265C0F3F00816121 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B677C9B265C0F3F00816121 /* NotificationPermission.swift */; };
-		1BA5C36A2666E426000907E9 /* TotalSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3682666E426000907E9 /* TotalSubscriptions.swift */; };
 		1BA5C36B2666E426000907E9 /* TotalSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3682666E426000907E9 /* TotalSubscriptions.swift */; };
-		1BA5C36C2666E426000907E9 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3692666E426000907E9 /* AverageExpenses.swift */; };
 		1BA5C36D2666E426000907E9 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3692666E426000907E9 /* AverageExpenses.swift */; };
+		A71E911F266CF65100073415 /* TotalSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E911D266CF65100073415 /* TotalSubscriptions.swift */; };
+		A71E9120266CF65100073415 /* TotalSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E911D266CF65100073415 /* TotalSubscriptions.swift */; };
+		A71E9121266CF65100073415 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E911E266CF65100073415 /* AverageExpenses.swift */; };
+		A71E9122266CF65100073415 /* AverageExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E911E266CF65100073415 /* AverageExpenses.swift */; };
+		A71E9125266CF93A00073415 /* TimePeriodObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E9124266CF93A00073415 /* TimePeriodObject.swift */; };
+		A71E9126266CF93A00073415 /* TimePeriodObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E9124266CF93A00073415 /* TimePeriodObject.swift */; };
+		A71E9128266CFFF400073415 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E9127266CFFF400073415 /* RemindMe.swift */; };
+		A71E9129266CFFF400073415 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E9127266CFFF400073415 /* RemindMe.swift */; };
 		A74C19A9265EE95A0059DE3D /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */; };
 		A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */; };
 		A74C19AF265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
 		A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C19AE265EFEA60059DE3D /* MultiPicker.swift */; };
-		A799AE97266402080009EFD6 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE96266402080009EFD6 /* RemindMe.swift */; };
-		A799AE98266402080009EFD6 /* RemindMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE96266402080009EFD6 /* RemindMe.swift */; };
 		A799AE9D26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
 		A799AE9E26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */; };
 		A7BC24672664358F00DF04F8 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = A7BC24662664358F00DF04F8 /* PartialSheet */; };
@@ -100,9 +104,12 @@
 		1B677C9B265C0F3F00816121 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
 		1BA5C3682666E426000907E9 /* TotalSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalSubscriptions.swift; sourceTree = "<group>"; };
 		1BA5C3692666E426000907E9 /* AverageExpenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
+		A71E911D266CF65100073415 /* TotalSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalSubscriptions.swift; sourceTree = "<group>"; };
+		A71E911E266CF65100073415 /* AverageExpenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageExpenses.swift; sourceTree = "<group>"; };
+		A71E9124266CF93A00073415 /* TimePeriodObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodObject.swift; sourceTree = "<group>"; };
+		A71E9127266CFFF400073415 /* RemindMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMe.swift; sourceTree = "<group>"; };
 		A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
 		A74C19AE265EFEA60059DE3D /* MultiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPicker.swift; sourceTree = "<group>"; };
-		A799AE96266402080009EFD6 /* RemindMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindMe.swift; sourceTree = "<group>"; };
 		A799AE9C26640ADD0009EFD6 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		A7E51F53265B9FE800194F79 /* Dashboard+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dashboard+ViewModel.swift"; sourceTree = "<group>"; };
 		A7E51F55265BA02C00194F79 /* Styleheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleheet.swift; sourceTree = "<group>"; };
@@ -158,6 +165,7 @@
 				1B677C07265A788600816121 /* Tests iOS */,
 				1B677C12265A788600816121 /* Tests macOS */,
 				1B677BF5265A788600816121 /* Products */,
+				A71E911C266CF60200073415 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,12 +232,10 @@
 		1B677C87265A973800816121 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A71E9123266CF92400073415 /* TimePeriod */,
 				1B677C81265A972900816121 /* Subscription+CoreDataClass.swift */,
 				A74C19A8265EE95A0059DE3D /* SubscriptionModel.swift */,
 				1B677C91265B300000816121 /* Currency.swift */,
-				A7EDB3BA2660160000B66C0D /* Cycle.swift */,
-				A7EDB3BD2660161500B66C0D /* Duration.swift */,
-				A799AE96266402080009EFD6 /* RemindMe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,9 +251,9 @@
 		1B677C8C265B2FA300816121 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A791FC7126653A04000DE0F7 /* SubViews */,
 				1B677BED265A788500816121 /* DashboardView.swift */,
 				A7E51F59265BA23000194F79 /* NewSubView.swift */,
+				A791FC7126653A04000DE0F7 /* SubViews */,
 				A7DF5BC6265C2084005F109D /* Custom */,
 			);
 			path = Views;
@@ -274,13 +280,33 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A71E911C266CF60200073415 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1BA5C3692666E426000907E9 /* AverageExpenses.swift */,
+				1BA5C3682666E426000907E9 /* TotalSubscriptions.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A71E9123266CF92400073415 /* TimePeriod */ = {
+			isa = PBXGroup;
+			children = (
+				A71E9127266CFFF400073415 /* RemindMe.swift */,
+				A7EDB3BD2660161500B66C0D /* Duration.swift */,
+				A7EDB3BA2660160000B66C0D /* Cycle.swift */,
+				A71E9124266CF93A00073415 /* TimePeriodObject.swift */,
+			);
+			path = TimePeriod;
+			sourceTree = "<group>";
+		};
 		A791FC7126653A04000DE0F7 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				A71E911E266CF65100073415 /* AverageExpenses.swift */,
+				A71E911D266CF65100073415 /* TotalSubscriptions.swift */,
 				1B677C9B265C0F3F00816121 /* NotificationPermission.swift */,
 				1B677C31265A79D600816121 /* SubscriptionCell.swift */,
-				1B677C95265B360C00816121 /* TotalSubscriptions.swift */,
-				1B677C98265B380E00816121 /* AverageExpenses.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -478,6 +504,7 @@
 			files = (
 				1B677C92265B300000816121 /* Currency.swift in Sources */,
 				A7E51F56265BA02C00194F79 /* Styleheet.swift in Sources */,
+				A71E9128266CFFF400073415 /* RemindMe.swift in Sources */,
 				A7EDB3BB2660160000B66C0D /* Cycle.swift in Sources */,
 				1B677C8F265B2FE900816121 /* SubscriptionType.swift in Sources */,
 				A7E51F5A265BA23000194F79 /* NewSubView.swift in Sources */,
@@ -486,21 +513,21 @@
 				A7E51F5C265BD02100194F79 /* BaseViewModel.swift in Sources */,
 				A74C19A9265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C8A265A982C00816121 /* Color+.swift in Sources */,
-				A799AE97266402080009EFD6 /* RemindMe.swift in Sources */,
+				A71E9121266CF65100073415 /* AverageExpenses.swift in Sources */,
 				A7EDB3BE2660161500B66C0D /* Duration.swift in Sources */,
 				1B677C18265A788600816121 /* SubsApp.swift in Sources */,
 				A799AE9D26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */,
 				1B677C1C265A788600816121 /* Persistence.swift in Sources */,
 				1B677C16265A788600816121 /* Subs.xcdatamodeld in Sources */,
 				A7E51F54265B9FE800194F79 /* Dashboard+ViewModel.swift in Sources */,
+				A71E9125266CF93A00073415 /* TimePeriodObject.swift in Sources */,
 				A7E51F70265C0A4800194F79 /* ValidationRegex.swift in Sources */,
-				1BA5C36C2666E426000907E9 /* AverageExpenses.swift in Sources */,
+				A71E911F266CF65100073415 /* TotalSubscriptions.swift in Sources */,
 				A7E51F58265BA21F00194F79 /* NewSubView+ViewModel.swift in Sources */,
 				A7E51F6A265BD9B800194F79 /* Local+Strings.swift in Sources */,
 				1B677C32265A79D600816121 /* SubscriptionCell.swift in Sources */,
 				1B677C1A265A788600816121 /* DashboardView.swift in Sources */,
 				A74C19AF265EFEA60059DE3D /* MultiPicker.swift in Sources */,
-				1BA5C36A2666E426000907E9 /* TotalSubscriptions.swift in Sources */,
 				1B677C9C265C0F3F00816121 /* NotificationPermission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,14 +545,17 @@
 				A799AE9E26640ADD0009EFD6 /* CurrencyTextField.swift in Sources */,
 				A74C19AA265EE95A0059DE3D /* SubscriptionModel.swift in Sources */,
 				1B677C19265A788600816121 /* SubsApp.swift in Sources */,
+				A71E9126266CF93A00073415 /* TimePeriodObject.swift in Sources */,
 				1BA5C36D2666E426000907E9 /* AverageExpenses.swift in Sources */,
 				1B677C1D265A788600816121 /* Persistence.swift in Sources */,
 				1BA5C36B2666E426000907E9 /* TotalSubscriptions.swift in Sources */,
 				1B677C17265A788600816121 /* Subs.xcdatamodeld in Sources */,
-				A799AE98266402080009EFD6 /* RemindMe.swift in Sources */,
+				A71E9122266CF65100073415 /* AverageExpenses.swift in Sources */,
+				A71E9120266CF65100073415 /* TotalSubscriptions.swift in Sources */,
 				A74C19B0265EFEA60059DE3D /* MultiPicker.swift in Sources */,
 				1B677C33265A79D600816121 /* SubscriptionCell.swift in Sources */,
 				1B677C1B265A788600816121 /* DashboardView.swift in Sources */,
+				A71E9129266CFFF400073415 /* RemindMe.swift in Sources */,
 				1B677C9D265C0F3F00816121 /* NotificationPermission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

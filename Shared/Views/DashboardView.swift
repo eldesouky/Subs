@@ -11,7 +11,7 @@ import PartialSheet
 
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    let sheetManager: PartialSheetManager = PartialSheetManager()
+    @EnvironmentObject private var sheetManager: PartialSheetManager
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Subscription.firstBill, ascending: true)],
         animation: .default)

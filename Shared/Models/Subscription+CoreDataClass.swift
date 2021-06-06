@@ -24,8 +24,10 @@ extension Subscription {
     @NSManaged public var detail: String?
     @NSManaged public var color: String?
     @NSManaged public var firstBill: Date
-    @NSManaged public var cycle: String
-    @NSManaged public var duration: String
+    @NSManaged public var durationPeriodCount: Int16
+    @NSManaged public var durationPeriodType: Int16
+    @NSManaged public var cyclePeriodCount: Int16
+    @NSManaged public var cyclePeriodType: Int16
     @NSManaged public var reminder: Int16
     @NSManaged public var currency: String
     @NSManaged public var name: String
@@ -38,9 +40,11 @@ extension Subscription {
         let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
         newSub.amount = Double.random(in: 1.99 ... 29.99).rounded(toPlaces: 2)
         newSub.currency = Currency.default().symbol
-        newSub.cycle = "30-0"
+        newSub.cyclePeriodType = 0
+        newSub.cyclePeriodCount = 30
         newSub.detail = Int.random(in: 0 ... 1) == 0 ? nil : "main"
-        newSub.duration = "2-2"
+        newSub.durationPeriodType = 2
+        newSub.durationPeriodCount = 2
         newSub.firstBill = Date()
         newSub.type = subType.rawValue
         newSub.name = subType.getName()
@@ -60,9 +64,11 @@ extension Subscription : Identifiable {
         let subType = SubscriptionType.allCases[Int.random(in: 0 ... SubscriptionType.allCases.count - 1)]
         self.amount = model.amount
         self.currency = model.currency.locale.identifier
-        self.cycle = "\(model.cycle.number.intValue)-\(model.cycle.period.rawValue)"
+        self.cyclePeriodType = model.cycle.type.toInt16
+        self.cyclePeriodCount = model.cycle.count.toInt16
         self.detail = model.detail.isEmpty ? nil : model.detail
-        self.duration = "\(model.duration.number.intValue)-\(model.duration.period.rawValue)"
+        self.durationPeriodType = model.duration.type.toInt16
+        self.durationPeriodCount = model.duration.count.toInt16
         self.firstBill = model.firstBill
         self.type = subType.rawValue
         self.name = model.name
