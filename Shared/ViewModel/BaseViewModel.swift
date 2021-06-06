@@ -17,9 +17,10 @@ class BaseViewModel: ObservableObject {
         configureLinks()
     }
     
-//    init() {
-//        configureLinks()
-//    }
-    
     func configureLinks() {}
+    
+    
+    func saveContext() throws {
+        try context.save()
+    }
 }

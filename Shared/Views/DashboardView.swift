@@ -7,10 +7,11 @@
 
 import SwiftUI
 import CoreData
+import PartialSheet
 
 struct DashboardView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    
+    @EnvironmentObject private var sheetManager: PartialSheetManager
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Subscription.firstBill, ascending: true)],
         animation: .default)
@@ -55,6 +56,7 @@ struct DashboardView: View {
             }, label: { Label("", systemImage: "plus") }))
             .sheet(isPresented: $createNewItem) {
                 NewSubView()
+                    .environmentObject(sheetManager)
             }
         }
     }

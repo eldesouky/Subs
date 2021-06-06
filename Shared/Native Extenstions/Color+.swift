@@ -56,9 +56,9 @@ extension Color {
     }
 }
 
-extension UIColor {
+extension Color {
     func hexStringFromColor() -> String {
-        let components = self.cgColor.components
+        let components = self.cgColor?.components
         let r: CGFloat = components?[0] ?? 0.0
         let g: CGFloat = components?[1] ?? 0.0
         let b: CGFloat = components?[2] ?? 0.0

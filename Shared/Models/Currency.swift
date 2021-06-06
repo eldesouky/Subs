@@ -6,8 +6,23 @@
 //
 
 import Foundation
-enum Currency: Int16, CaseIterable {
-    case €, `$`
+
+final class Currency {
+    var locale: Locale = Locale.current
+    
+    internal init() {}
+    
+    static func `default`() -> Currency {
+        return Currency()
+    }
+    
+    init(identifier: String) {
+        locale = Locale(identifier: identifier)
+    }
+    
+    var symbol: String {
+        return locale.currencySymbol ?? ""
+    }
 }
 
 // If you want to get the currency symbols

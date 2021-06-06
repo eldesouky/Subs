@@ -7,78 +7,85 @@
 
 import SwiftUI
 import Combine
+import PartialSheet
 
 struct NewSubView: View {
     @Environment(\.presentationMode) private var presentationMode
     
-    @StateObject var viewModel = ViewModel()
+    @StateObject var viewModel: ViewModel
     
-    init() {
-//        _viewModel = .init(wrappedValue: viewModel)
+    
+    init(viewModel: ViewModel = .init()) {
+        _viewModel = .init(wrappedValue: viewModel)
+        
         UITableViewCell.appearance().backgroundColor = .clear
         UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().bounces = false
     }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                viewModel.color.edgesIgnoringSafeArea(.all)
-                List {
-                    fieldHeader
-                    fieldBody
-                }
+            List {
+                fieldHeader
+                fieldBody
             }
             .navigationBarTitle(AppLocal.default[.title_newSubscription], displayMode: .inline)
             .navigationBarItems( leading: cancelButton, trailing: addButton )
-        }
+        } .navigationViewStyle(StackNavigationViewStyle())
+        .addPartialSheet()
+        
     }
     
     private var fieldHeader: some View {
-        
-        HStack(spacing: 0) {
-            ZStack {
-                Color.random.opacity(0.5).edgesIgnoringSafeArea(.all)
-
-                viewModel.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .background(Color.clear)
-                    .padding()
+        HStack(alignment: .center) {
+            Spacer()
+            VStack(spacing: 5) {
+                ZStack {
+                    viewModel.color.edgesIgnoringSafeArea(.all)
+                    
+                    viewModel.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .background(Color.clear)
+                        .padding(10)
+                    
+                    Text(AppLocal.default[.label_itemImageTabToChange])
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }.frame(width: 90, height: 90, alignment: .center)
+                .clipShape(Circle())
                 
-                Text("Tab To\nChange")
-                    .font(.caption)
-                    .foregroundColor(.white)
-                    .multilineTextAlignment(.center)
-            }.frame(width: 150, height: 150, alignment: .center)
-            .onTapGesture(perform: {
-                // open icons and set value imageName
-                viewModel.imageName = "netflix_logo"
-            })
-            TextField("0.00", value: $viewModel.amount, formatter: StyleSheet.currencyFormatter)
-//            TextField("0.00 \(viewModel.currency)", text: $viewModel.price)
-                .multilineTextAlignment(.center)
-                .frame(height: 45, alignment: .center)
-                .border(Color.black, width: 1)
-                .keyboardType(.decimalPad)
-            
-            
-//            Text("\(PresistanceController.isPreviewing)")
+                .onTapGesture(perform: {
+                    //                    // open icons and set value imageName
+                    //                    viewModel.imageName = "netflix_logo"
+                })
+                
+                CurrencyTextField("", value: $viewModel.amount, alwaysShowFractions: false, numberOfDecimalPlaces: 2, currencySymbol: viewModel.currency.symbol)
+                    .multilineTextAlignment(TextAlignment.center)
+                    .frame(width: 150, height: 45, alignment: .center)
+                
+                //                TextField("0.00", value: $viewModel.amount, formatter: StyleSheet.currencyFormatter)
+                //                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                //                    .multilineTextAlignment(.center)
+                //                    .frame(width: 150, height: 45, alignment: .center)
+                //                    .keyboardType(.decimalPad)
+                
+            }
+            Spacer()
         }
-        .cornerRadius(10)
     }
     
     private var fieldBody: some View {
         Group {
             TextInputCell(title: .label_itemName, valuePlaceHolder: .label_itemPlaceholderName, value: $viewModel.name)
-            TextInputCell(title: .label_itemDescription, valuePlaceHolder: .label_itemPlaceholderDescription, value: $viewModel.name)
-            OptionsCell(title: .label_itemCategory)
+            TextInputCell(title: .label_itemDescription, valuePlaceHolder: .label_itemPlaceholderDescription, value: $viewModel.detail)
             ColorPickerCell(title: .label_itemColor, value: $viewModel.color)
-            PickerCell(title: .label_itemCurrency, list: StyleSheet.currencyList())
             
-            DatePickerCell(title: .label_itemFirstBill, value: $viewModel.firstBillDate)
-            CyclePickerCell(title: .label_itemCycle)
-            OptionsCell(title: .label_itemDuration)
-            OptionsCell(title: .label_itemRemindMe)
+            datePickerCell
+            SubscriptionMultiPicker<Cycle>(title: .label_itemCycle, value: $viewModel.cycle, selection1: $viewModel.cycleCountSelection, selection2: $viewModel.cycleTypeSelection)
+            SubscriptionMultiPicker<Duration>(title: .label_itemDuration, value: $viewModel.duration, selection1: $viewModel.durationCountSelection, selection2: $viewModel.durationTypeSelection)
+            remindMeCell
         }
     }
     
@@ -103,6 +110,18 @@ struct NewSubView: View {
         }
     }
     
+    private var datePickerCell: some View {
+        DatePicker(AppLocal.default[.label_itemFirstBill], selection: $viewModel.firstBill, displayedComponents: .date)
+            .datePickerStyle(CompactDatePickerStyle())
+    }
+    
+    private var remindMeCell: some View {
+        HStack {
+            Text(AppLocal.default[.label_itemRemindMe])
+            Spacer()
+            Text(viewModel.remindMeString)
+        }
+    }
 }
 
 fileprivate struct TextInputCell: View {
@@ -129,71 +148,61 @@ fileprivate struct OptionsCell: View {
     }
 }
 
-
-fileprivate struct CyclePickerCell: View {
+fileprivate struct SubscriptionMultiPicker<T: PeriodTimeObject>: View {
+    @EnvironmentObject var partialSheetManager: PartialSheetManager
+    
     @State var title: AppLocal.Strings
-//    @Binding var value: String
+    @Binding var value: T
     
-    @State private var data = [ ("numbers",Array(1...30).map { "\($0)" }),
-                         ("periods", TimePeriodCategory.valuesList())]
+    @Binding var selection1: Int
+    @Binding var selection2: Int
     
-    @State var selection: [String] = ["1", TimePeriodCategory.month.value]
-    
-    @State var showPicker: Bool = false
     var body: some View {
-        VStack {
+        let cyclePicker = MultiSegmentPickerViewModel(segments: [
+            ("p1", $selection1, value.pickerCountColumn()), // Values for first segment
+            ("p2", $selection2, value.pickerTypeColumn()) // Values for second segment
+        ])
+        
+        HStack {
             Text(AppLocal.default[title])
-            MultiPicker(data: data, selection: $selection)
-                .frame(height: 40)
+            Spacer()
+            Text(value.stringValue)
+        }
+        .onTapGesture {
+            self.partialSheetManager.showPartialSheet {
+                MultiSegmentPickerView(viewModel: cyclePicker)
+                    .frame(height: 250)
+                    .ignoresSafeArea()
+            }
         }
     }
 }
 
-
-fileprivate struct PickerCell: View {
-    var title: AppLocal.Strings
-    var list: [String]
-    @State private var selectedFrameworkIndex = ""
-    
-    var body: some View {
-        Picker(AppLocal.default[title], selection: $selectedFrameworkIndex) {
-            ForEach(list, id:\.self) { item in
-                Text(item)
-            }
-        }.frame(height: 40)
-    }
-}
 
 fileprivate struct ColorPickerCell: View {
     var title: AppLocal.Strings
     @Binding var value: Color
     
     var body: some View {
-        ColorPicker(AppLocal.default[title], selection: $value)
+        ColorPicker(AppLocal.default[title], selection: $value, supportsOpacity: false)
     }
 }
 
-fileprivate struct DatePickerCell: View {
-    var title: AppLocal.Strings
-    @Binding var value: Date
-    
-    var body: some View {
-        //        HStack {
-//                    Text(AppLocal.default[title])
-        //            Spacer()
-        DatePicker(AppLocal.default[title], selection: $value, displayedComponents: .date)
-            .datePickerStyle(CompactDatePickerStyle())
-        //        }
-    }
-}
+
 
 
 
 #if DEBUG
-struct NewSubView_Previews: PreviewProvider {
-    static var previews: some View {
 
+struct NewSubView_Previews: PreviewProvider {
+    
+    
+    static var previews: some View {
+        let sheetManager: PartialSheetManager = PartialSheetManager()
+        
         NewSubView()
+            .preferredColorScheme(.dark)
+            .environmentObject(sheetManager)
     }
 }
 #endif

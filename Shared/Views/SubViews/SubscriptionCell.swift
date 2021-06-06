@@ -32,8 +32,8 @@ struct SubscriptionCell: View {
             Spacer()
 
             VStack(alignment: .trailing) {
-                if let amount = content.amount, let currency = Currency(rawValue: content.currency) {
-                    let price = "\(currency) \(amount)"
+                if let amount = content.amount, let selectedLocale: Currency = Currency(identifier: content.currency) {
+                    let price = StyleSheet.currencyFormat(amount: amount, local: selectedLocale.locale)
                     Text(price)
                         .foregroundColor(.white)
                 }
@@ -57,8 +57,8 @@ struct SubscriptionCell_Previews: PreviewProvider {
         sub.name = "Apple Arcade"
         sub.icon = "apple_logo"
         sub.amount = 7.99
-        sub.currency = 0
-        sub.color = UIColor.red.hexStringFromColor()
+        sub.currency = Currency.default().symbol
+        sub.color = Color.red.hexStringFromColor()
    
         return SubscriptionCell(content: sub)
     }
