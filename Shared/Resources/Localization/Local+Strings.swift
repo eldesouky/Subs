@@ -35,7 +35,8 @@ extension AppLocal {
             
             localValues[Strings.button_add] = "Add"
             localValues[Strings.button_cancel] = "Cancel"
-            
+            localValues[Strings.button_allow] = "Allow"
+
             localValues[Strings.label_itemName] = "Name"
             localValues[Strings.label_itemDescription] = "Description"
             localValues[Strings.label_itemCategory] = "Category"
@@ -56,6 +57,13 @@ extension AppLocal {
             localValues[Strings.label_itemPlaceholderRemindMe] = "Remind Me"
             localValues[Strings.label_itemPlaceholderCurrency] = "Currency"
             
+            localValues[Strings.title_permission] = "Permission Request"
+            localValues[Strings.label_premissionNeeded] = "Needs Permission"
+            localValues[Strings.label_notifications] = "Notifications"
+            localValues[Strings.label_notificationsBrief] = "Allow to notify you on billing date"
+            localValues[Strings.label_notificationsExplanition] = "Notification permission is necessary to allow the app to notify about billings of subscriptions you wish to track"
+
+            
         }
     }
 
@@ -69,7 +77,8 @@ extension AppLocal {
         case title_subscription
         case button_add
         case button_cancel
-        
+        case button_allow
+
         case label_itemName
         case label_itemDescription
         case label_itemCategory
@@ -89,6 +98,13 @@ extension AppLocal {
         case label_itemPlaceholderDuration
         case label_itemPlaceholderRemindMe
         case label_itemPlaceholderCurrency
+        
+        //Permission View
+        case title_permission
+        case label_premissionNeeded
+        case label_notifications
+        case label_notificationsBrief
+        case label_notificationsExplanition
     }
 }
 

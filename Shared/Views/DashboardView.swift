@@ -18,8 +18,8 @@ struct DashboardView: View {
     
     @State var showTotalSubscriptions = false
     @State var createNewItem: Bool = false
-    
     @StateObject var viewModel = ViewModel()
+    @State var showPermissionAlert = false
     
     init(){
         UITableView.appearance().separatorStyle = .none
@@ -47,7 +47,6 @@ struct DashboardView: View {
                             showTotalSubscriptions.toggle()
                         }
                     }
-                
             }
             .background(Color.white)
             .navigationBarTitle(AppLocal.default[.title_subscription], displayMode: .inline)
